@@ -1,8 +1,8 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router';
 
-import baseRouters from './modules/base.ts'
+import baseRouters from './modules/base.ts';
 
-const routes = [...baseRouters]
+const routes = [...baseRouters];
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -12,8 +12,8 @@ const router = createRouter({
       el: '#app',
       top: 0,
       behavior: 'smooth'
-    }
+    };
   }
-})
+});
 
-export default router
+export default router;

@@ -1,23 +1,20 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
-import 'dayjs/locale/zh-cn'
+import { RouterView } from 'vue-router';
+import 'dayjs/locale/zh-cn';
 </script>
 
 <template>
-  <el-config-provider :locale="zhCn">
-    <header>
-      <img alt="Vue logo" class="logo" src="@/assets/vue.svg" width="125" height="125" />
+  <header>
+    <img alt="Vue logo" class="logo" src="@/assets/vue.svg" width="125" height="125" />
 
-      <div class="wrapper">
-        <nav>
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">about</RouterLink>
-        </nav>
-      </div>
-    </header>
-    <RouterView />
-  </el-config-provider>
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">about</RouterLink>
+      </nav>
+    </div>
+  </header>
+  <RouterView />
 </template>
 
 <style lang="less" scoped>

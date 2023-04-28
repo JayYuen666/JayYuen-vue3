@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 export const useCounterStore = defineStore('counter', {
   state: () => ({
@@ -6,7 +6,7 @@ export const useCounterStore = defineStore('counter', {
   }),
   actions: {
     accumulate() {
-      this.count += 1
+      this.count += 1;
     }
   }
-})
+});

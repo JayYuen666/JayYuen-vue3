@@ -17,32 +17,29 @@ module.exports = {
     }
   },
   extends: [
-    'eslint-config-airbnb-base',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:vue/essential'
+    'eslint-config-airbnb-base'
   ],
   plugins: ['vue', '@typescript-eslint'],
   settings: {
     'import/resolver': {
-      node: {
-        paths: ['src', '@/'],
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      alias: {
+        map: [['@', './src/']],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.less', '.vue'],
         moduleDirectory: ['src', 'node_modules']
       }
     }
   },
   rules: {
-    'import/no-unresolved': 'off',
-    'no-underscore-dangle': 'off',
-    'import/prefer-default-export': 'off',
-    'vue/multi-word-component-names': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-function': 'off',
+    'vue/multi-word-component-names': 'off',
+    'import/prefer-default-export': 'off',
     'vue/custom-event-name-casing': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
@@ -53,11 +50,19 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     'no-unused-vars': 'error',
     'space-before-function-paren': 'off',
-    'no-unused-expressions': 'off',
-    'no-param-reassign': 'off',
     'consistent-return': 'off',
     'no-console': 'off',
     quotes: ['error', 'single'],
-    'comma-dangle': ['error', 'never']
+    'no-new': 'off',
+    'comma-dangle': ['error', 'never'],
+    'no-unused-expressions': [
+      'error',
+      { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true }
+    ],
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsForRegex: ['config'] }
+    ],
+    'prettier/prettier': 'off'
   }
-}
+};

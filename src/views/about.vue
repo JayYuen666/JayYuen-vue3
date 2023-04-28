@@ -2,8 +2,6 @@
   <div>about</div>
 </template>
 
-<script setup>
-'about'
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>
