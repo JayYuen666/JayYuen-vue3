@@ -54,20 +54,8 @@
       "pr": ":rocket: _This pull request is included in v${version}. See [${releaseName}](${releaseUrl}) for release notes._"
     }
   },
-  "gitlab": {
-    "release": true,
-    "releaseName": "Release ${version}",
-    "releaseNotes": null,
-    "milestones": [],
-    "tokenRef": "GITLAB_TOKEN",
-    "tokenHeader": "Private-Token",
-    "certificateAuthorityFile": null,
-    "assets": null,
-    "origin": null,
-    "skipChecks": false
-  },
   "hooks": {
-    "after:bump": "npm run release:changelog:fix",
+    "after:bump": "echo 更新版本成功",
     "before:release": "npm run release:changelog:fix",
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
@@ -109,10 +97,7 @@
           "type": "test",
           "hidden": true
         }
-      ],
-      "preset": {
-        "name": "conventionalcommits"
-      }
+      ]
     }
   }
 }
