@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import routes from '@/router/modules/base.ts';
+import routes from '@/router/modules/base.ts'
 </script>
 
 <style scoped></style>

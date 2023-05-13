@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import legacy from '@vitejs/plugin-legacy'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -7,6 +8,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  root: process.cwd(),
   base: './',
   plugins: [
     vue(),
@@ -15,12 +17,17 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver()]
-    })
+    }),
+    legacy({
+      targets: ['defaults', 'not IE 11'],
+    }),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
+      '@': path.resolve(__dirname, 'src'),
+      comps: path.resolve(__dirname, "/src/components"),
+    },
+    extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", "vue"],
   },
   server: {
     port: 4000, // 设置服务启动端口号

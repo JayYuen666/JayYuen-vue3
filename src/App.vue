@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
-import 'dayjs/locale/zh-cn';
-import { JayMenu } from '@/components/index.ts';
+import { RouterView } from 'vue-router'
+import 'dayjs/locale/zh-cn'
+import { JayMenu } from '@/components/index.ts'
 </script>
 
 <template>

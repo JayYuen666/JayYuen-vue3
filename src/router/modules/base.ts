@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router';
+import { RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,6 +11,6 @@ const routes: Array<RouteRecordRaw> = [
     name: '关于',
     component: () => import('@/views/about.vue')
   }
-];
+]
 
-export default routes;
+export default routes
