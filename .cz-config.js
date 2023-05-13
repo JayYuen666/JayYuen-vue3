@@ -34,16 +34,15 @@ module.exports = {
   }),
 
   // 是否允许自定义填写 scope，在 scope 选择的时候，会有 empty 和 custom 可以选择。
-  // allowCustomScopes: true,
+  allowCustomScopes: true,
 
-  // allowTicketNumber: false,
-  // isTicketNumberRequired: false,
-  // ticketNumberPrefix: 'TICKET-',
-  // ticketNumberRegExp: '\\d{1,5}',
+  allowTicketNumber: false,
+  isTicketNumberRequired: false,
+  ticketNumberPrefix: 'TICKET-',
+  ticketNumberRegExp: '\\d{1,5}',
 
 
   // 针对每一个 type 去定义对应的 scopes，例如 fix
-  /*
   scopeOverrides: {
     fix: [
       { name: 'merge' },
@@ -52,7 +51,6 @@ module.exports = {
       { name: 'unitTest' }
     ]
   },
-  */
 
   // 交互提示信息
   messages: {
@@ -77,6 +75,6 @@ module.exports = {
   // subject 限制长度
   subjectLimit: 100,
   breaklineChar: '|', // 支持 body 和 footer
-  // footerPrefix : 'ISSUES CLOSED:'
-  // askForBreakingChangeFirst : true,
+  footerPrefix: 'ISSUES CLOSED:',
+  askForBreakingChangeFirst: true,
 }
