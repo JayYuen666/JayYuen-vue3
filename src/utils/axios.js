@@ -87,11 +87,12 @@ function getPendingKey(config) {
  */
 function addPending(config) {
   const pendingKey = getPendingKey(config);
-  config.cancelToken = config.cancelToken || new axios.CancelToken((cancel) => {
-    if (!pendingMap.has(pendingKey)) {
-      pendingMap.set(pendingKey, cancel);
-    }
-  });
+  config.cancelToken = config.cancelToken
+    || new axios.CancelToken((cancel) => {
+      if (!pendingMap.has(pendingKey)) {
+        pendingMap.set(pendingKey, cancel);
+      }
+    });
 }
 
 /**

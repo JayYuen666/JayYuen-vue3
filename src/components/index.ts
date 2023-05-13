@@ -1,5 +1,3 @@
 import JayMenu from './Menu.vue';
 
-export {
-  JayMenu
-};
+export { JayMenu };
