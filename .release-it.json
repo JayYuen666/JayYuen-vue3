@@ -67,7 +67,7 @@
     "skipChecks": false
   },
   "hooks": {
-    "after:bump": "npm run build",
+    "after:bump": "npm run release:changelog:fix",
     "before:release": "npm run release:changelog:fix",
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },

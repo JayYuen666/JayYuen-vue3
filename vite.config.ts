@@ -19,7 +19,8 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()]
     }),
     legacy({
-      targets: ['defaults', 'not IE 11'],
+      targets: ['> 1%, last 1 version, ie >= 11'],
+      additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
     }),
   ],
   resolve: {
