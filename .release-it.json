@@ -1,22 +1,73 @@
 {
   "git": {
     "commitMessage": "chore(release): v${version}",
+    "tagAnnotation": "Release v${version}",
+    "tagName": "v${version}",
     "push": true,
     "commit": true,
     "tag": true,
     "requireCommits": false,
-    "requireCleanWorkingDir": false
+    "requireCleanWorkingDir": false,
+    "requireBranch": false,
+    "requireUpstream": true,
+    "requireCommitsFail": true,
+    "commitsPath": "",
+    "addUntrackedFiles": false,
+    "commitArgs": [],
+    "tagExclude": null,
+    "tagMatch": null,
+    "tagArgs": [],
+    "pushArgs": [
+      "--follow-tags"
+    ],
+    "pushRepo": ""
   },
   "npm": {
-    "publish": false,
-    "ignoreVersion": false
+    "publish": true,
+    "publishPath": ".",
+    "tag": null,
+    "otp": null,
+    "ignoreVersion": false,
+    "allowSameVersion": false,
+    "versionArgs": ["--allow-same-version", "--workspaces-update=false"],
+    "publishArgs": ["--include-workspace-root"],
+    "skipChecks": false,
+    "timeout": 10
   },
   "github": {
     "release": true,
-    "draft": true
+    "releaseName": "Release ${version}",
+    "autoGenerate": false,
+    "preRelease": false,
+    "tokenRef": "GITHUB_AUTH",
+    "assets": null,
+    "host": null,
+    "timeout": 0,
+    "proxy": null,
+    "skipChecks": false,
+    "web": false,
+    "releaseNotes": "generate-release-notes.sh --from=${latestTag} --to=${tagName}",
+    "draft": true,
+    "comments": {
+      "submit": false,
+      "issue": ":rocket: _This issue has been resolved in v${version}. See [${releaseName}](${releaseUrl}) for release notes._",
+      "pr": ":rocket: _This pull request is included in v${version}. See [${releaseName}](${releaseUrl}) for release notes._"
+    }
+  },
+  "gitlab": {
+    "release": false,
+    "releaseName": "Release ${version}",
+    "releaseNotes": null,
+    "milestones": [],
+    "tokenRef": "GITLAB_TOKEN",
+    "tokenHeader": "Private-Token",
+    "certificateAuthorityFile": null,
+    "assets": null,
+    "origin": null,
+    "skipChecks": false
   },
   "hooks": {
-    "after:bump": "gulp version --bump ${version} && npm run build && npm run test:build:version && git add ./dist && git add ./package-lock.json",
+    "after:bump": "npm run build",
     "before:release": "npm run release:changelog:fix",
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
@@ -24,7 +75,44 @@
     "@release-it/conventional-changelog": {
       "preset": "angular",
       "infile": "CHANGELOG.md",
-      "header": "# Changelog"
+      "header": "# Changelog",
+      "types": [
+        {
+          "type": "feat",
+          "section": "Features"
+        },
+        {
+          "type": "fix",
+          "section": "Bug Fixes"
+        },
+        {
+          "type": "chore",
+          "hidden": true
+        },
+        {
+          "type": "docs",
+          "hidden": true
+        },
+        {
+          "type": "style",
+          "hidden": true
+        },
+        {
+          "type": "refactor",
+          "hidden": true
+        },
+        {
+          "type": "perf",
+          "hidden": true
+        },
+        {
+          "type": "test",
+          "hidden": true
+        }
+      ],
+      "preset": {
+        "name": "conventionalcommits"
+      }
     }
   }
 }
