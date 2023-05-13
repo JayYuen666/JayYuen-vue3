@@ -11,12 +11,7 @@
     "requireBranch": false,
     "requireUpstream": true,
     "requireCommitsFail": true,
-    "commitsPath": "",
     "addUntrackedFiles": false,
-    "commitArgs": [],
-    "tagExclude": null,
-    "tagMatch": null,
-    "tagArgs": [],
     "pushArgs": [
       "--follow-tags"
     ],
@@ -25,28 +20,16 @@
   "npm": {
     "publish": true,
     "publishPath": ".",
-    "tag": null,
-    "otp": null,
-    "ignoreVersion": false,
-    "allowSameVersion": false,
     "versionArgs": ["--allow-same-version", "--workspaces-update=false"],
     "publishArgs": ["--include-workspace-root"],
-    "skipChecks": false,
     "timeout": 10
   },
   "github": {
     "release": true,
     "releaseName": "Release ${version}",
     "autoGenerate": false,
-    "preRelease": false,
     "tokenRef": "GITHUB_AUTH",
-    "assets": null,
-    "host": null,
     "timeout": 0,
-    "proxy": null,
-    "skipChecks": false,
-    "web": false,
-    "releaseNotes": "generate-release-notes.sh --from=${latestTag} --to=${tagName}",
     "draft": true,
     "comments": {
       "submit": false,
