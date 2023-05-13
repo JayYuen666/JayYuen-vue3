@@ -55,7 +55,7 @@
     }
   },
   "gitlab": {
-    "release": false,
+    "release": true,
     "releaseName": "Release ${version}",
     "releaseNotes": null,
     "milestones": [],
