@@ -1,9 +1,9 @@
-import axios from "./githubAPI.js";
+import axios from "./githubAPI";
 import util from "util";
 import cp from "child_process";
 import Handlebars from "handlebars";
 import fs from "fs/promises";
-import { colorize } from "./helpers/colorize.js";
+import { colorize } from "./helpers/colorize";
 
 const exec = util.promisify(cp.exec);
 

@@ -12,7 +12,7 @@
     "lint": "eslint ./src --ext .vue,.js,.ts",
     "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts",
     "release": "release-it",
-    "release:changelog:fix": "node ./bin/injectContributorsList.js && git add CHANGELOG.md",
+    "release:changelog:fix": "node ./bin/injectContributorsList.ts && git add CHANGELOG.md",
     "release:dry": "release-it --dry-run --no-npm",
     "release:info": "release-it --release-version",
     "release:beta:no-npm": "release-it --preRelease=beta --no-npm",

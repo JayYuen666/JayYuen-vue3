@@ -1,14 +1,15 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig, InternalAxiosRequestConfig } from 'axios'
 import { ElLoading, ElMessage } from 'element-plus'
 import { getTokenAUTH } from './auth.ts'
 
 const pendingMap = new Map()
-const LoadingInstance = {
+
+const LoadingInstance: any = {
   targetValue: null, // 保存Loading实例
   countValue: 0
 }
 
-function myAxios(axiosConfig, customOptions, loadingOptions) {
+function myAxios(axiosConfig: AxiosRequestConfig<any>, customOptions: any, loadingOptions: any) {
   const service = axios.create({
     baseURL: 'http://localhost:8888', // 设置统一的请求前缀
     timeout: 10000 // 设置统一的超时时长
@@ -73,7 +74,7 @@ function myAxios(axiosConfig, customOptions, loadingOptions) {
  * @param {*} config
  * @returns string
  */
-function getPendingKey(config) {
+function getPendingKey(config: InternalAxiosRequestConfig<any>) {
   const { url, method, params, data } = config
   if (typeof data === 'string') {
     config.data = JSON.parse(data)
@@ -85,7 +86,7 @@ function getPendingKey(config) {
  * 储存每个请求唯一值, 也就是cancel()方法, 用于取消请求
  * @param {*} config
  */
-function addPending(config) {
+function addPending(config: InternalAxiosRequestConfig<any>) {
   const pendingKey = getPendingKey(config)
   config.cancelToken =
     config.cancelToken ||
@@ -100,7 +101,7 @@ function addPending(config) {
  * 删除重复的请求
  * @param {*} config
  */
-function removePending(config) {
+function removePending(config: InternalAxiosRequestConfig<any>) {
   const pendingKey = getPendingKey(config)
   if (pendingMap.has(pendingKey)) {
     const cancelToken = pendingMap.get(pendingKey)
@@ -113,11 +114,11 @@ function removePending(config) {
  * 关闭Loading层实例
  * @param {*} _options
  */
-function closeLoading(_options) {
+function closeLoading(_options: { loading: any }) {
   if (_options.loading && LoadingInstance.countValue > 0) {
     LoadingInstance.countValue -= 1
   }
-  if (LoadingInstance.countValue === 0) {
+  if (LoadingInstance.countValue === 0 && LoadingInstance.targetValue) {
     LoadingInstance.targetValue.close()
     LoadingInstance.targetValue = null
   }
@@ -127,7 +128,7 @@ function closeLoading(_options) {
  * 处理异常
  * @param {*} error
  */
-function httpErrorStatusHandle(error) {
+function httpErrorStatusHandle(error: { message: string | string[]; response: { status: any; config: { url: any } } }) {
   // 处理被取消的请求
   if (axios.isCancel(error)) {
     return console.error(`请求的重复请求：${error.message}`)

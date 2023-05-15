@@ -45,7 +45,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-var': 'error',
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'off',
     // 禁用 debugger
     'no-debugger': 'warn',
     // 禁止出现重复的 case 标签
@@ -122,8 +122,6 @@ module.exports = {
     'no-mixed-spaces-and-tabs': 'warn',
     // 禁止出现多行空行
     'no-multiple-empty-lines': 'warn',
-    // 禁止出现;
-    semi: ['warn', 'never'],
     // 强制在块之前使用一致的空格
     'space-before-blocks': 'warn',
     // 强制在圆括号内使用一致的空格

@@ -1,9 +1,9 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { renderContributorsList, getTagRef, renderPRsList } from './contributors.js';
+import { renderContributorsList, getTagRef, renderPRsList } from './contributors';
 import asyncReplace from 'string-replace-async';
 import { fileURLToPath } from "url";
-import { colorize } from "./helpers/colorize.js";
+import { colorize } from "./helpers/colorize";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
