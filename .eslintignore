@@ -13,5 +13,4 @@ dist
 /bin
 !.eslintrc.cjs
 prettier.config.js
-.cz-config.js
 vite.config.ts

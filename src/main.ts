@@ -9,6 +9,7 @@ import 'element-plus/dist/index.css'
 import '@/assets/main.css'
 import '@/style/index.less'
 import '@/common/default.less'
+import 'virtual:uno.css'
 
 const app = createApp(App)
 app.use(ElementPlus)
